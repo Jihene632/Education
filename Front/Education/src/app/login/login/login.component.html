@@ -1,0 +1,29 @@
+<div class="container">
+	<!--<div class="row">-->
+	<!-- <div class="text-center"> -->	
+			<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+				<div>
+					<h3 class="text-center my-4">Welcome</h3>
+				</div>
+
+				<div class="form-group">
+					<!--<label for="exampleInputEmail1">Email address</label>-->
+					<input type="email" class="form-control my-4" name="username" placeholder="Username"
+						formControlName="email" required>
+					<small id="emailHelp" class="form-text text-muted my-4">We'll never share your email with anyone
+						else.</small>
+				</div>
+				<div class="form-group">
+				<!--	<label for="exampleInputPassword1">Password</label> -->
+					<input type="password" class="form-control" name="pass" placeholder="Password"
+						formControlName="password" required>
+				</div>
+			<!--<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Check me out</label>
+				</div> -->	
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+	<!--	</div>
+	</div>-->
+</div>

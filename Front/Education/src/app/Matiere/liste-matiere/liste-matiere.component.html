@@ -1,0 +1,83 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Espace Enseignant</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/listeEtudiants']">Etudiants <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/listeMatieres']">Matières</a>
+        </li>
+
+        <li class="nav-item active" style="margin-left: 700px !important;">
+          <a class="nav-link" [routerLink]="['/login']" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    
+    <nav class="navbar navbar-light ">
+        <a class="navbar-brand" href="#">
+         
+        </a>
+      </nav>
+             
+              <div class="row"style="margin-left: -45px;">
+            
+            
+            
+                
+                <input type="text" class ="form-control" style="margin-left: 12px;width: 50%" placeholder="Rechercher" (input)="filter($event.target.value)">
+              </div>
+              <br/>
+              <nav aria-label="breadcrumb" style="margin-left: -35px;">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item" aria-current="page"><a href="addMatiere"><i class="fas fa-plus"></i>&nbsp;Ajouter une nouvelle matière</a></li>
+                </ol>
+              </nav>
+              <br />
+       
+    <div class="card" style="background-color:#23989345;width:1250px;margin-left: -35px;">
+            
+        <div class="card-header">
+            <h3 style="font-size: 30px"Matieres></h3>
+        </div>
+        <div class="card-body">
+           
+            <table class="table table-hover">
+                <thead>
+                   <tr class="text-center">
+                    
+                       <th>Nom </th>
+                       <th>Coefficient</th>
+                       
+                       <th style="width: 1000px;width:auto">Actions</th>
+                   </tr>
+                </thead>
+                  <tbody>
+                   <tr *ngFor="let mat of matieres ">
+                      
+                      <td>{{mat.nomMatiere}}</td>
+                      <td>{{mat.coefficient}}</td>
+                      
+                      <td>
+                          
+                          <button class="btn btn-warning" (click)="edit(mat.id)" style="margin-inline-start:8px;"><i class="fas fa-pen" ></i>&nbsp;Modifier</button>
+                          <button class="btn btn-danger" style=" margin-left: 8px;"(click)="removeE(mat.id)"><i class="fas fa-trash"></i>&nbsp;Supprimer </button>
+                      </td>
+                      </tr>
+                  </tbody>
+
+            </table>
+        </div>
+    </div>
+  <div class="alert alert-danger" role="alert" style="margin-right: 70px" *ngIf="errorMessage">
+        <h4>{{errorMessage}}</h4> 
+</div>
+      <br />
+    
+</div>

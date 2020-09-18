@@ -1,0 +1,55 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Espace Enseignant</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/listeEtudiants']">Etudiants <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/listeMatieres']">Matières</a>
+            </li>
+    
+            <li class="nav-item active" style="margin-left: 700px !important;">
+              <a class="nav-link" [routerLink]="['/login']" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="card">
+        <div class="card-header">
+            <h3>Modifier Etudiant </h3>
+        </div>
+        <div class="card-body">
+           <form  [formGroup]="editE">
+              
+            <div class="form-group" >
+                <label >Nom</label>
+                <input type="text" class="form-control" [(ngModel)]="etud.nom" formControlName="nom" required > 
+            
+             </div>
+               <div class="form-group">
+                    <label >Prénom</label>
+                    <input type="text" class="form-control"  formControlName="prenom"  [(ngModel)]="etud.prenom"  placeholder="Prénom"  required>
+                    
+                </div>
+                <div class="form-group">
+                    <label >téléphone</label>
+                    <input type="text" class="form-control"  formControlName="tel"  [(ngModel)]="etud.tel"  placeholder="Téléphone"  required>
+                    
+                </div>
+               
+                   
+                     
+                
+                <div class="form-group">
+                 <button (click)="ModifPerso()" class=" btn btn-info"  >Modifier</button>  
+                </div>
+           </form>
+           
+        </div>
+    </div>
+</div>

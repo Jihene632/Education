@@ -1,0 +1,92 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Espace Enseignant</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['/listeEtudiants']">Etudiants <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['/listeMatieres']">Matières</a>
+                </li>
+
+                <li class="nav-item active" style="margin-left: 700px !important;">
+                    <a class="nav-link" [routerLink]="['/login']" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <br />
+    <nav aria-label="breadcrumb" style="margin-left: -35px;">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" aria-current="page"><a href="addNote"><i class="fas fa-plus"></i>&nbsp;Ajouter
+                    une nouvelle note </a></li>
+        </ol>
+    </nav>
+    <br />
+
+    <div class="card-header">
+        <h3 style="font-size: 30px">Notes</h3>
+    </div>
+    <div class="card-body">
+
+        <table class="table table-hover">
+            <thead>
+                <tr class="text-center">
+
+                    <th>Matiere </th>
+                    <th>Coefficient</th>
+                    <th>Note</th>
+
+                    <th style="width: 1000px;width:auto">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let note of notes ">
+
+                    <td>{{note.matiere.nomMatiere}}</td>
+                    <td>{{note.matiere.coefficient}}</td>
+                    <td>{{note.note}}</td>
+
+
+                    <td>
+
+                        <button class="btn btn-warning" style=" margin-left: 8px;" (click)="edit(note.id)"><i
+                                class="fas fa-pen"></i>&nbsp;Modifier </button>
+                        <button class="btn btn-danger" style=" margin-left: 8px;" (click)="removeN(note.id)"><i
+                                    class="fas fa-trash"></i>&nbsp;Supprimer </button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <div>
+
+
+            <button class="btn btn-warning" (click)="calculerMoy()" style="margin-inline-start:8px;">&nbsp;Calculer la
+                moyenne générale</button>
+            <div *ngIf="display">
+                <h3>La moyenne générale est : {{moy.moyenne}}</h3>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>

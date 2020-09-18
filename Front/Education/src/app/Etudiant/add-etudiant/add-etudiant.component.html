@@ -1,0 +1,76 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Espace Enseignant</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/listeEtudiants']">Etudiants <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/listeMatieres']">Matières</a>
+        </li>
+
+        <li class="nav-item active" style="margin-left: 700px !important;">
+          <a class="nav-link" [routerLink]="['/login']" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    <div class="card">
+        <div class="card-header">
+            <h3>Ajouter un etudiant </h3>
+        </div>
+        <div class="card-body">
+           <form  [formGroup]="addE" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label >email</label>
+                <input type="email" class="form-control" placeholder="Email" [ngClass]="{'is-invalid':addE.get('email').touched && addE.get('email').invalid}" formControlName="email" required >
+                <div *ngIf="addE.get('email').touched && addE.get('email').invalid"  class="invalid-feedback">
+                        <div *ngIf="addE.get('email').errors.required">Email est obligatoire</div>
+                        <div *ngIf="addE.get('email').errors.email">Il faut entrer un email valide</div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label >password</label>
+                        <input type="text" placeholder="password "class="form-control" formControlName="password" [ngClass]="{'is-invalid':addE.get('password').touched && addE.get('password').invalid}"  required>
+                        <div *ngIf="addE.get('password').touched && addE.get('password').invalid"  class="invalid-feedback">
+                                <div *ngIf="addE.get('password').errors.required">Password est obligatoire</div>
+                                <div *ngIf="addE.get('password').errors.minlength">Password  doit contenir au moins 6 caractères</div>
+                  </div>
+                    </div>
+              
+               <div class="form-group">
+                   <label  >Nom</label>
+                   <input type="text" class="form-control" formControlName="nom"  placeholder="Nom" [ngClass]="{'is-invalid':addE.get('nom').touched && addE.get('nom').invalid}" required >
+                   <div class="invalid-feedback">
+                    <div>Le Nom est obligatoire</div>
+                  </div>
+      
+               </div>
+               <div class="form-group">
+                    <label >Prénom</label>
+                    <input type="text" class="form-control" formControlName="prenom" placeholder="Prénom" [ngClass]="{'is-invalid':addE.get('prenom').touched && addE.get('prenom').invalid}" required>
+                    <div class="invalid-feedback">
+                        <div>Le prénom est obligatoire</div>
+                      </div>
+                </div>
+                <div class="form-group">
+                  <label >tel</label>
+                  <input type="text" class="form-control" formControlName="tel" placeholder="Téléphone" [ngClass]="{'is-invalid':addE.get('tel').touched && addE.get('tel').invalid}" required>
+                  <div class="invalid-feedback">
+                      <div>Le téléphone est obligatoire</div>
+                    </div>
+              </div>
+               
+                
+                <div class="form-group">
+                 <button (click)="ajoutEtud()" class=" btn btn-info" [disabled]="!addE.valid" >Ajout</button>  
+                </div>
+           </form>
+           
+        </div>
+    </div>
+</div>

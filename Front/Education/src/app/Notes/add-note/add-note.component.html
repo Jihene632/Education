@@ -1,0 +1,57 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Espace Enseignant</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/listeEtudiants']">Etudiants <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/listeMatieres']">Matières</a>
+            </li>
+    
+            <li class="nav-item active" style="margin-left: 700px !important;">
+              <a class="nav-link" [routerLink]="['/login']" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="card">
+        <div class="card-header">
+            <h3>Ajouter une note </h3>
+        </div>
+        <div class="card-body">
+           <form  [formGroup]="add" class="needs-validation" novalidate>
+           
+        
+                <div class="form-group">
+                    <label>Matiere</label>
+                        <select class='form-control'   formControlName="matiere"  [ngClass]="{'is-invalid':add.get('matiere').touched && add.get('matiere').invalid}" required>
+                                <option value="" disabled selected>Selectionner votre matiere</option> 
+                               <option *ngFor="let matiere of matieres">{{matiere.nomMatiere}}</option>
+                
+                                </select>
+                              <div class="invalid-feedback">
+                                    <div>La matiere est obligatoire</div>
+                                  </div>
+                </div>
+                <div class="form-group">
+                    <label  >Note</label>
+                    <input type="text" class="form-control" formControlName="note"  placeholder="Votre note" [ngClass]="{'is-invalid':add.get('note').touched && add.get('note').invalid}" required >
+                    <div class="invalid-feedback">
+                     <div>La note est obligatoire </div>
+                   </div>
+       
+                </div>
+               
+              <div class="form-group">
+                 <button (click)="ajoutNote()" class=" btn btn-info" [disabled]="!add.valid" >Ajout</button>  
+                </div>
+           </form>
+           
+        </div>
+    </div>
+</div>

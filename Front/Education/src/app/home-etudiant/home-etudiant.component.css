@@ -1,0 +1,30 @@
+table, th, td {
+    border: 2px #2b2b2b solid;
+    color: #2b2b2b;
+    }
+    
+    table { background-color: #00ff4e00;Width:80% }
+    th { background-color: #00B2B2; }
+    .notification {
+        background-color: #555;
+        color: white;
+        text-decoration: none;
+        padding: 15px 26px;
+        position: relative;
+        display: inline-block;
+        border-radius: 2px;
+      }
+      
+      .notification:hover {
+        background: red;
+      }
+      
+      .notification .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background: red;
+        color: white;
+      }
